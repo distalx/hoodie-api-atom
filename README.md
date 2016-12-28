@@ -1,3 +1,9 @@
-# hoodie-api package
+# hoodie-api
 
- A package for hoodie for atom editor with autocomplete, code snippets, color-coded grammar, syntax highlighting, and more! Code faster and with fewer mistakes!
+ Basic snippets to make hoodie development faster in atom.
+
+
+###Todo
+[] Snippets
+[] Autocomplete
+[] Grammar
