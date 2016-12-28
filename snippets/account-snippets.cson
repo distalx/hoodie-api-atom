@@ -1,0 +1,213 @@
+'.source.js':
+  # 'account constructor':
+  #   'prefix': 'new Account'
+  #   'body': """
+  #     var account = new Account({
+  #       url: '${2:/api}',
+  #       id: 'user123',
+  #       cacheKey: 'myapp.session',
+  #       validate: function (options) {
+  #         if (options.username.length < 3) {
+  #           throw new Error('Username must have at least 3 characters')
+  #         }
+  #     });
+  #
+  #   """
+  #   'description': 'Account constructor'
+  #   'rightLabelHTML' : 'new Account(options)'
+  #   'descriptionMoreURL' : 'https://github.com/hoodiehq/hoodie-client#constructor'
+
+
+  'account signUp':
+    'prefix': 'signUp'
+    'body': """
+      ${1:hoodie}.account.signUp({
+        username: ${2:username},
+        password: ${3:password}
+      })
+        .then(function() {
+          return hoodie.account.signIn({
+            username: ${4:username},
+            password: ${5:password}
+          });
+        })
+        .then(function() {
+          ${7:alert("Good Job! On to the next slide!");}
+        })
+        .catch(function(errror) {
+          ${8:alert('Ooops, something went wrong: ' + error.message);}
+        })$9
+    """
+    'description': 'Creates a new user account on the Hoodie server. Does not sign in the user automatically, account.signIn must be called separately.'
+    'rightLabelHTML' : 'account.signUp(accountProperties)'
+    'descriptionMoreURL' : 'https://github.com/hoodiehq/hoodie-account-client#accountsignup'
+
+  'account signIn':
+    'prefix': 'signIn'
+    'body': """
+      ${1:hoodie}.account.signIn({
+        username: ${2:username},
+        password: ${3:password}
+      })
+      .then(function() {
+
+      })
+      .catch(function(errror) {
+        ${7:alert('Ooops, something went wrong: ' + error.message);}
+      })$9
+    """
+    'description': 'Creates a user session'
+    'rightLabelHTML' : 'account.signIn(options)'
+    'descriptionMoreURL' : 'https://github.com/hoodiehq/hoodie-account-client#accountsignin'
+
+  'account signOut':
+    'prefix': 'signOut'
+    'body': """
+      ${1:hoodie}.account.signOut().then(function(sessionProperties) {
+        ${2:alert('Bye, ' + sessionProperties.account.username)}
+      })
+      .catch(function(errror) {
+        ${3:alert('Ooops, something went wrong: ' + error.message);}
+      })$3
+    """
+    'description': 'Deletes the user’s session'
+    'rightLabelHTML' : 'account.signOut()'
+    'descriptionMoreURL' : 'https://github.com/hoodiehq/hoodie-account-client#accountsignout'
+
+  'account destroy':
+    'prefix': 'destroy'
+    'body': """
+      ${1:hoodie}.account.destroy().then(function(sessionProperties) {
+        ${2:alert('Bye, ' + sessionProperties.account.username)}
+      })
+      .catch(function(errror) {
+        ${3:alert('Ooops, something went wrong: ' + error.message);}
+      })$3
+    """
+    'description': 'Destroys the account of the currently signed in user.'
+    'rightLabelHTML' : 'account.destroy()'
+    'descriptionMoreURL' : 'https://github.com/hoodiehq/hoodie-account-client#accountdestroy'
+
+  'account get':
+    'prefix': 'get'
+    'body': '${1:hoodie.}account.get()$2'
+    'description': 'Returns account properties from local cache.'
+    'rightLabelHTML' : 'account.get(properties)'
+    'descriptionMoreURL' : 'https://github.com/hoodiehq/hoodie-account-client#accountget'
+
+  'account fetch':
+    'prefix': 'fetch'
+    'body': """
+      ${1:hoodie.}account.fetch().then(function (properties) {
+        ${2:alert('You signed up at ' + properties.createdAt)}
+      })$3
+    """
+    'description': 'Fetches account properties from server.'
+    'rightLabelHTML' : 'account.fetch(properties)'
+    'descriptionMoreURL' : 'https://github.com/hoodiehq/hoodie-account-client#accountfetch'
+
+  'account update':
+    'prefix': 'update'
+    'body': """
+      ${1:hoodie.}account.update({${2:username}: '${3:treetrunks}'}).then(function (properties) {
+        ${4:alert('You are now known as ' + properties.username)}
+      })$5
+    """
+    'description': 'Update account properties on server and local cache'
+    'rightLabelHTML' : 'account.update(changedProperties)'
+    'descriptionMoreURL' : 'https://github.com/hoodiehq/hoodie-account-client#accountupdate'
+
+  'account profile get':
+    'prefix': 'profile get'
+    'body': '${1:hoodie.}account.profile.get($2)$3'
+    'description': 'Returns profile properties from local cache.'
+    'rightLabelHTML' : 'account.profile.get(properties)'
+    'descriptionMoreURL' : 'https://github.com/hoodiehq/hoodie-account-client#accountprofileget'
+
+  'account profile fetch':
+    'prefix': 'profile fetch'
+    'body': """
+      ${1:hoodie.}account.profile.fetch().then(function (properties) {
+        ${2:alert('Hey there ' + properties.fullname)}
+      })$4
+    """
+    'description': 'Fetches profile properties from server.'
+    'rightLabelHTML' : 'account.profile.fetch(options)'
+    'descriptionMoreURL' : 'https://github.com/hoodiehq/hoodie-account-client#accountprofilefetch'
+
+  'account profile update':
+    'prefix': 'profile update'
+    'body': """
+      ${1:hoodie.}account.profile.update({fullname: '${2:Prof Pat Hook}'}).then(function (properties) {
+        ${3:alert('Congratulations, ' + properties.fullname)}
+      })$4
+    """
+    'description': 'Update profile properties on server and local cache'
+    'rightLabelHTML' : 'account.profile.update(changedProperties)'
+    'descriptionMoreURL' : 'https://github.com/hoodiehq/hoodie-account-client#accountprofileupdate'
+
+  'account profile update':
+    'prefix': 'profile update'
+    'body': """
+      ${1:hoodie.}account.request({type: 'passwordreset', contact: '${2:pat@example.com}'}).then(function (properties) {
+        ${3:alert('A password reset link was sent to ' + properties.contact)}
+      })$4
+    """
+    'description': 'Sends a custom request to the server, for things like password resets, account upgrades, etc.'
+    'rightLabelHTML' : 'account.request(properties)'
+    'descriptionMoreURL' : 'https://github.com/hoodiehq/hoodie-account-client#accountrequest'
+
+  'account on':
+    'prefix': 'account on'
+    'body': """
+      ${1:hoodie.}account.on('${2:event}', function () {
+        $3
+      })$4
+    """
+    'description': 'Call function at given account event.'
+    'rightLabelHTML' : 'account.on(event, handler)'
+    'descriptionMoreURL' : 'https://github.com/hoodiehq/hoodie-account-client#accounton'
+
+  'account one':
+    'prefix': 'account one'
+    'body': """
+      ${1:hoodie.}account.one('${2:event}', function () {
+        $3
+      })$4
+    """
+    'description': 'Call function once at given account event.'
+    'rightLabelHTML' : 'account.one(event, handler)'
+    'descriptionMoreURL' : 'https://github.com/hoodiehq/hoodie-account-client#accountone'
+
+  'account off':
+    'prefix': 'account off'
+    'body': """
+      ${1:hoodie.}account.off('${2:event}', function () {
+        $3
+      })$4
+    """
+    'description': 'Removes event handler that has been added before'
+    'rightLabelHTML' : 'account.off(event, handler)'
+    'descriptionMoreURL' : 'https://github.com/hoodiehq/hoodie-account-client#accountoff'
+
+  'account hooks before':
+    'prefix': 'hook before'
+    'body': """
+      ${1:hoodie.}account.hook.before('signin', function (options) {
+        return localUserStore.clear()
+      })$4
+    """
+    'description': 'Account Hook befor'
+    'rightLabelHTML' : 'account.hook.before(event, handler)'
+    'descriptionMoreURL' : 'https://github.com/hoodiehq/hoodie-account-client#hooks'
+
+  'account hooks after':
+    'prefix': 'hook after'
+    'body': """
+      ${1:hoodie.}account.hook.after('signout', function (options) {
+        return localUserStore.clear()
+      })$4
+    """
+    'description': 'Account Hook after'
+    'rightLabelHTML' : 'account.hook.after(event, handler)'
+    'descriptionMoreURL' : 'https://github.com/hoodiehq/hoodie-account-client#hooks'

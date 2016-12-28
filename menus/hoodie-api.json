@@ -1,0 +1,26 @@
+{
+  "context-menu": {
+    "atom-text-editor": [
+      {
+        "label": "Toggle hoodie-api",
+        "command": "hoodie-api:toggle"
+      }
+    ]
+  },
+  "menu": [
+    {
+      "label": "Packages",
+      "submenu": [
+        {
+          "label": "hoodie-api",
+          "submenu": [
+            {
+              "label": "Toggle",
+              "command": "hoodie-api:toggle"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

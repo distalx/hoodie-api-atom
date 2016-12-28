@@ -1,0 +1,143 @@
+'.source.js':
+  'admin constructor':
+    'prefix': 'new AccountAdmin'
+    'body': """
+      var admin = new AccountAdmin({
+        // required. Path or full URL to root location of the account JSON API
+        url: '/api',
+        // name of localStorage key where to persist the session state.
+        // Defaults to "account_admin"
+        cacheKey: 'myapp.admin.session'
+      })
+
+      admin.ready.then(function () {
+        // admin API is now ready
+      })
+    """
+    'description': 'Admin constructor'
+    'rightLabelHTML' : 'new AccountAdmin(options)'
+    'descriptionMoreURL' : 'https://github.com/hoodiehq/hoodie-account-client/tree/master/admin#constructor'
+
+  'admin username':
+    'prefix': 'admin username'
+    'body': 'admin.username'
+    'description': 'Returns the username if signed in, otherwise undefined'
+    'rightLabelHTML' : 'admin.username'
+    'descriptionMoreURL' : 'https://github.com/hoodiehq/hoodie-account-client/tree/master/admin#adminusername'
+
+  'admin isSignedIn':
+    'prefix': 'isSignedIn'
+    'body': 'admin.isSignedIn()'
+    'description': 'Returns true if user is currently signed in, otherwise false.'
+    'rightLabelHTML' : 'admin.isSignedIn()'
+    'descriptionMoreURL' : 'https://github.com/hoodiehq/hoodie-account-client/tree/master/admin#adminissignedin'
+
+  'admin isSignedIn':
+    'prefix': 'isSignedIn'
+    'body': 'admin.isSignedIn()'
+    'description': 'Returns true if user is currently signed in, otherwise false.'
+    'rightLabelHTML' : 'admin.isSignedIn()'
+    'descriptionMoreURL' : 'https://github.com/hoodiehq/hoodie-account-client/tree/master/admin#adminissignedin'
+
+  'admin signIn':
+    'prefix': 'signIn'
+    'body': """
+      admin.signIn({username:'${1:username}', password: '${2:password}'})then(function (sessionProperties) {
+        ${4:alert(sessionProperties)}
+      }).catch(function (error) {
+        ${5:alert(error)}
+      })$6
+    """
+    'description': 'Creates a user session.'
+    'rightLabelHTML' : 'admin.signIn(options)'
+    'descriptionMoreURL' : 'https://github.com/hoodiehq/hoodie-account-client/tree/master/admin#adminsignin'
+
+  'admin signOut':
+    'prefix': 'signOut'
+    'body': """
+      admin.signOut().then(function (sessionProperties) {
+        ${1:alert('Bye, ' + sessionProperties.account.username)}
+      }).catch(function (error) {
+        ${2:alert(error)}
+      })
+    """
+    'description': 'Deletes the user’s session'
+    'rightLabelHTML' : 'admin.signOut(options)'
+    'descriptionMoreURL' : 'https://github.com/hoodiehq/hoodie-account-client/tree/master/admin#adminsignout'
+
+  'admin sessions add':
+    'prefix': 'sessions add'
+    'body': """
+      admin.sessions.add({
+        username: '${1:pat}'
+      }).then(function (sessionProperties) {
+        $2
+      }).catch(function (error) {
+        ${3:console.error(error)}
+      })$4
+    """
+    'description': 'Admins can create a session for any user.'
+    'rightLabelHTML' : 'admin.sessions.add()'
+    'descriptionMoreURL' : 'https://github.com/hoodiehq/hoodie-account-client/tree/master/admin#adminsessionsadd'
+
+  'admin sessions find':
+    'prefix': 'sessions find'
+    'body': """
+      admin.sessions.find(${1:sessionId}).then(function (sessionProperties) {
+        ${2:alert('Session is valid.')}
+      }).catch(function (error) {
+        if (error.name === 'NotFoundError') {
+          ${3:alert('Session is invalid')}
+          return
+        }
+        console.error(error)
+      })$4
+    """
+    'description': 'Resolves with sessionProperties'
+    'rightLabelHTML' : 'admin.sessions.find(sessionId)'
+    'descriptionMoreURL' : 'https://github.com/hoodiehq/hoodie-account-client/tree/master/admin#adminsessionsfind'
+
+  'admin sessions find all':
+    'prefix': 'sessions findAll'
+    'body': """
+      admin.sessions.findAll()
+      .then(function (rendrenderSessions) {
+
+      })
+      .catch(function (error) {
+        ${2:console.error(error)}
+      })$3
+    """
+    'description': 'Resolves with Array of sessionProperties'
+    'rightLabelHTML' : 'admin.sessions.findAll(options)'
+    'descriptionMoreURL' : 'https://github.com/hoodiehq/hoodie-account-client/tree/master/admin#adminsessionsfindall'
+
+  'admin sessions remove':
+    'prefix': 'sessions remove'
+    'body': """
+      admin.sessions.remove(${1:sessionId}).then(function (sessionProperties) {
+        ${2:alert('Session invalidated')}
+      }).catch(function (error) {
+        ${3:console.error(error)}
+      })$4
+    """
+    'description': 'Remove session by id'
+    'rightLabelHTML' : 'admin.sessions.remove(sessionId)'
+    'descriptionMoreURL' : 'https://github.com/hoodiehq/hoodie-account-client/tree/master/admin#adminsessionsremove'
+
+  'admin sessions remove all':
+    'prefix': 'sessions removeAll'
+    'body': """
+      admin.sessions.removeAll().then(function (sessionProperties) {
+        ${1:alert('All Sessions invalidated.')}
+      }).catch(function (error) {
+        if (error.name === 'NotFoundError') {
+          ${2:alert('Session is invalid')}
+          return
+        }
+        ${3:console.error(error)}
+      })$4
+    """
+    'description': 'Remove all sessions'
+    'rightLabelHTML' : 'admin.sessions.removeAll()'
+    'descriptionMoreURL' : 'https://github.com/hoodiehq/hoodie-account-client/tree/master/admin#adminsessionsremoveall'

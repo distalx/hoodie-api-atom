@@ -1,0 +1,19 @@
+'.source.js':
+  'client constructor':
+    'prefix': 'new Hoodie'
+    'body': """
+      ${1:var} ${2:hoodie} = new Hoodie({
+        url: '${3:https://myhoodieapp.com}',
+        PouchDB: require('pouchdb')
+      })
+    """
+    'description': 'Hoodie constructor'
+    'rightLabelHTML' : 'new Hoodie(options)'
+    'descriptionMoreURL' : 'https://github.com/hoodiehq/hoodie-client#constructor'
+
+  'hoodie url':
+    'prefix': 'url'
+    'body': 'hoodie.url'
+    'description': 'returns full url to the hoodie server'
+    'rightLabelHTML' : 'hoodie.url'
+    'descriptionMoreURL' : 'https://github.com/hoodiehq/hoodie-client#hoodieurl'

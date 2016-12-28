@@ -1,0 +1,16 @@
+{
+  "name": "hoodie-api",
+  "main": "./lib/hoodie-api",
+  "version": "0.0.0",
+  "description": "A short description of your package",
+  "keywords": [
+  ],
+  "activationHooks": ["language-javascript:grammar-used", "language-coffee-script:grammar-used"],
+  "repository": "https://github.com/atom/hoodie-api",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "dependencies": {
+  }
+}

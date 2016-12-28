@@ -1,0 +1,193 @@
+'.source.js':
+  'store defaults':
+    'prefix': 'defaults'
+    'body': """
+
+      Store.defaults({
+        remoteBaseUrl: '${1:http://localhost:5984}'
+      })
+      $2
+    """
+    'description': 'Add data to hoodie store'
+    'rightLabelHTML' : 'Store.defaults(options)'
+    'descriptionMoreURL' : 'https://github.com/hoodiehq/hoodie-store-client#storedefaults'
+
+  'store constructor':
+    'prefix': 'new Store'
+    'body': """
+      Store('${1:mydb}', { remote: '${2:http://localhost:5984/mydb}' })
+      $2
+    """
+    'description': 'Add data to hoodie store'
+    'rightLabelHTML' : 'Store.defaults(options)'
+    'descriptionMoreURL' : 'https://github.com/hoodiehq/hoodie-store-client#storedefaults'
+
+  'store add':
+    'prefix': 'add'
+    'body': """
+      ${1:hoodie.}store.add({${2:foo}: '${3:bar}'}).then(function (${4:doc}) {
+        alert(${5:doc}.${6:foo})
+      }).catch(function (error) {
+        ${7:alert(error)}
+      })
+      $8
+    """
+    'description': 'Add data to hoodie store'
+    'rightLabelHTML' : 'store.add(properties)'
+    'descriptionMoreURL' : 'https://github.com/hoodiehq/hoodie-store-client#storeaddproperties'
+
+  'store find':
+    'prefix': 'find'
+    'body': """
+      ${1:hoodie.}store.find(${2:id}).then(function (${3:doc}) {
+        ${4:alert(doc)}
+      }).catch(function (error) {
+        ${5:alert(error)}
+      })$6
+    """
+    'description': 'Find doc by id'
+    'rightLabelHTML' : 'store.find(id)'
+    'descriptionMoreURL' : 'https://github.com/hoodiehq/hoodie-store-client#storefindid'
+
+  'store find or add':
+    'prefix': 'findOrAdd'
+    'body': """
+      ${1:hoodie.}store.findOrAdd(${2doc}).then(function (${3:doc}) {
+        ${4:alert(doc)}
+      }).catch(function (error) {
+        ${5:alert(error)}
+      })$6
+    """
+    'description': 'Find or add '
+    'rightLabelHTML' : 'store.findOrAdd(id,doc)'
+    'descriptionMoreURL' : 'https://github.com/hoodiehq/hoodie-store-client#storefindoraddid-doc'
+
+  'store find all':
+    'prefix': 'findAll'
+    'body': """
+      ${1:hoodie.}store.findAll().then(function(${2:items}) {
+
+      })$3
+    """
+    'description': 'Find all the items in store'
+    'rightLabelHTML' : 'store.findAll()'
+    'descriptionMoreURL' : 'https://github.com/hoodiehq/hoodie-store-client#storefindall'
+
+  'store update':
+    'prefix': 'update'
+    'body': """
+      ${1:hoodie.}store.update(${2:id}, ${3:changedProperties}).then(function(${4:doc}) {
+        $5
+      }).catch(function (error) {
+        ${6:alert(error)}
+      })$7
+    """
+    'description': 'update doc by id'
+    'rightLabelHTML' : 'store.update(id,changedProperties)'
+    'descriptionMoreURL' : 'https://github.com/hoodiehq/hoodie-store-client#storeupdateid-changedproperties'
+
+  'store update or add':
+    'prefix': 'updateOrAdd'
+    'body': """
+      ${1:hoodie.}store.updateOrAdd(${2:id}, ${3:doc}).then(function(${4:doc}) {
+        $5
+      }).catch(function (error) {
+        ${6:alert(error)}
+      })$7
+    """
+    'description': 'update doc by id'
+    'rightLabelHTML' : 'store.updateOrAdd(id,doc)'
+    'descriptionMoreURL' : 'https://github.com/hoodiehq/hoodie-store-client#storeupdateoraddid-doc'
+
+  'store update all':
+    'prefix': 'updateAll'
+    'body': """
+      ${1:hoodie.}store.updateAll(${2:id}, ${3:changedProperties}).then(function(${4:doc}) {
+        $5
+      }).catch(function (error) {
+        ${6:alert(error)}
+      })$7
+    """
+    'description': 'update all'
+    'rightLabelHTML' : 'store.updateAll(changedProperties)'
+    'descriptionMoreURL' : 'https://github.com/hoodiehq/hoodie-store-client#storeupdateallchangedproperties'
+
+  'store remove':
+    'prefix': 'remove'
+    'body': """
+      ${1:hoodie.}store.remove(${2:id}).then(function() {
+        $3
+      }).catch(function (error) {
+        ${5:alert(error)}
+      })$6
+    """
+    'description': 'remove doc'
+    'rightLabelHTML' : 'store.remove(id)'
+    'descriptionMoreURL' : 'https://github.com/hoodiehq/hoodie-store-client#storeremoveid'
+
+  'store remove all':
+    'prefix': 'removeAll'
+    'body': """
+      ${1:hoodie.}store.removeAll().then(function() {
+        $2
+      }).catch(function (error) {
+        ${3:alert(error)}
+      })$4
+    """
+    'description': 'remove all docs'
+    'rightLabelHTML' : 'store.removeAll()'
+    'descriptionMoreURL' : 'https://github.com/hoodiehq/hoodie-store-client#storeremoveall'
+
+  'store sync':
+    'prefix': 'sync'
+    'body': '${1:hoodie.}store.sync()'
+    'description': 'sync with server'
+    'rightLabelHTML' : 'store.sync()'
+    'descriptionMoreURL' : 'https://github.com/hoodiehq/hoodie-store-client#storesync'
+
+  'store isConnected':
+    'prefix': 'isConnected'
+    'body': '${1:hoodie.}store.isConnected()'
+    'description': 'returns boolean value'
+    'rightLabelHTML' : 'store.isConnected()'
+    'descriptionMoreURL' : 'https://github.com/hoodiehq/hoodie-store-client#storeisconnected'
+
+  'store on':
+    'prefix': 'on'
+    'body': '${1:hoodie.}store.on()'
+    'description': 'returns store API'
+    'rightLabelHTML' : 'store.on()'
+    'descriptionMoreURL' : 'https://github.com/hoodiehq/hoodie-store-client#storeon'
+
+  'store on':
+    'prefix': 'store on'
+    'body': """
+      ${1:hoodie.}store.on('${2:event}', function () {
+        $3
+      })$4
+    """
+    'description': 'Call function at given store event.'
+    'rightLabelHTML' : 'store.onevent, handler)'
+    'descriptionMoreURL' : 'https://github.com/hoodiehq/hoodie-store-client#storeon'
+
+  'store one':
+    'prefix': 'store one'
+    'body': """
+      ${1:hoodie.}store.one('${2:event}', function () {
+        $3
+      })$4
+    """
+    'description': 'Call function once at given account event.'
+    'rightLabelHTML' : 'store.storeone(event, handler)'
+    'descriptionMoreURL' : 'https://github.com/hoodiehq/hoodie-store-client#storeone'
+
+  'store off':
+    'prefix': 'store off'
+    'body': """
+      ${1:hoodie.}store.off('${2:event}', function () {
+        $3
+      })$4
+    """
+    'description': 'Removes event handler that has been added before'
+    'rightLabelHTML' : 'store.off(event, handler)'
+    'descriptionMoreURL' : 'https://github.com/hoodiehq/hoodie-store-client#storeoff'
