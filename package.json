@@ -1,16 +1,18 @@
 {
   "name": "hoodie-api",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Basic snippets to make hoodie development faster in atom.",
   "keywords": [
     "hoodie"
   ],
-  "activationHooks": ["language-javascript:grammar-used", "language-coffee-script:grammar-used"],
+  "activationHooks": [
+    "language-javascript:grammar-used",
+    "language-coffee-script:grammar-used"
+  ],
   "repository": "https://github.com/distalx/hoodie-api-atom",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }
